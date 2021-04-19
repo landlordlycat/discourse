@@ -32,12 +32,8 @@
 //= require_tree ./helpers
 //= require break_string
 
-// Finally, the tests themselves
 //= require_tree ./fixtures
-//= require_tree ./acceptance
-//= require_tree ./integration
-//= require_tree ./unit
-//= require plugin_tests
+
 //= require setup-tests
 //= require test-shims
 //= require jquery.magnific-popup.min.js

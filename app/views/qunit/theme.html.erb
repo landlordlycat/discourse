@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Theme QUnit Test Runner</title>
+    <%= discourse_color_scheme_stylesheets %>
+    <%- if !@suggested_themes %>
+      <%= stylesheet_link_tag "test_helper" %>
+      <%= javascript_include_tag "test_helper" %>
+      <%= theme_translations_lookup %>
+      <%= theme_js_lookup %>
+      <%= theme_lookup("head_tag") %>
+      <%= theme_tests %>
+      <%= javascript_include_tag "test_starter" %>
+      <%= csrf_meta_tags %>
+      <script src="<%= ExtraLocalesController.url('admin') %>"></script>
+      <meta property="og:title" content="">
+      <meta property="og:url" content="">
+    <%- else %>
+      <style>
+        html {
+          font-family: Arial;
+        }
+        a {
+          display: block;
+          margin-bottom: 10px;
+        }
+      </style>
+    <%- end %>
+  </head>
+  <body>
+    <%- if !@suggested_themes %>
+      <div id="qunit"></div>
+      <div id="qunit-fixture"></div>
+    <%- else %>
+      <h3>Select a theme/component:</h3>
+      <%- @suggested_themes.each do |(id, name)| %>
+        <%= link_to name, theme_qunit_url(id: id) %>
+      <%- end %>
+    <%- end %>
+  </body>
+</html>

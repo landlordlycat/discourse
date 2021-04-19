@@ -957,6 +957,7 @@ Discourse::Application.routes.draw do
     unless Rails.env.production?
       get "/qunit" => "qunit#index"
       get "/wizard/qunit" => "wizard#qunit"
+      get "/theme-qunit" => "qunit#theme"
     end
 
     post "/push_notifications/subscribe" => "push_notification#subscribe"
