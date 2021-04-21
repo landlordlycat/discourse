@@ -37,6 +37,11 @@ acceptance("User Routes", function (needs) {
     assert.ok($("body.user-invites-page").length, "has the body class");
   });
 
+  test("Ignore - timeframe options", async function (assert) {
+    await visit("/u/eviltrout/summary");
+    assert.ok(queryAll("div.select-kit-selected-name").length > 0);
+  });
+
   test("Messages", async function (assert) {
     await visit("/u/eviltrout/messages");
     assert.ok($("body.user-messages-page").length, "has the body class");
